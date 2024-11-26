@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+
+  hello_world:
+    build:
+      context: ./backend/missions/hello_world
+
+  flask_server:
+    build:
+      context: ./backend/missions/flask_server
+    ports:
+      - "5001:5000"
+
+  csv_processor:
+    build:
+      context: ./backend/missions/csv_processor
